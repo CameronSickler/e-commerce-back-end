@@ -12,48 +12,76 @@ Product.init(
     // define columns
 
     // id
+    id: {
 
-    // Integer 
+      // Integer 
+      type: DataTypes.INTEGER,
 
-    // Doesn't allow null values
+      // Doesn't allow null values
+      allowNull: false,
 
-    // Set as primary key
+      // Set as primary key
+      primaryKey: true,
 
-    // Uses auto increment
-
+      // Uses auto increment
+      autoIncrement: true
+    },
     // product_name
+    product_name: {
 
-    // String
+      // String
+      type: DataTypes.STRING,
 
-    // Doesn't allow null values
+      // Doesn't allow null values
+      allowNull: false
+    },
 
     // price
+    price: {
 
-    // Decimal
+      // Decimal
+      type: DataTypes.DECIMAL,
 
-    // Doesn't allow null values
+      // Doesn't allow null values
+      allowNull: false,
 
-    // Validates that the value is a decimal
+      // Validates that the value is a decimal
+      validate: {
+        isDecimal: true
+      }
+    },
 
     // stock
+    stock: {
 
-    // Integer
+      // Integer
+      type: DataTypes.INTEGER,
 
-    // Doesn't allow null values
+      // Doesn't allow null values
+      allowNull: false,
 
-    // Set a default value of 10
+      // Set a default value of 10
+      defaultValue: 10,
 
-    // Validates that the value is numeric
-
+      // Validates that the value is numeric
+      Validate: {
+        isNumeric: true
+      }
+    },
     // category_id
+    category_id: {
 
-    // Integer
+      // Integer
+      type: DataTypes.INTEGER,
 
-    // References the category model's id
-
-
-
+      // References the category model's id
+      references: {
+        model: 'category',
+        key: 'id'
+      }
+    }
   },
+
   {
     sequelize,
     timestamps: false,

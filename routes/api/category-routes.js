@@ -88,10 +88,34 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
+
   // update a category by its `id` value
-  //Category.update
-  //grill req for id
-  //response
+  Category.update(req.body, {
+
+    where: {
+      id: req.params.id
+    }
+
+  })
+    .then(dbCategoryData => {
+
+      if (!dbCategoryData[0]) {
+
+        res.status(404).json({ message: 'This id does not match a category' });
+        return;
+
+      }
+
+      res.json(dbCategoryData);
+
+    })
+    .catch(err => {
+
+      console.log(err);
+      res.status(500).json(err);
+
+    });
+
 });
 
 router.delete('/:id', (req, res) => {

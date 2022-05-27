@@ -37,7 +37,6 @@ router.get('/', (req, res) => {
 
 
 
-
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
@@ -80,7 +79,6 @@ router.get('/:id', (req, res) => {
 
 
 
-
 // create new product
 router.post('/', (req, res) => {
 
@@ -120,6 +118,7 @@ router.post('/', (req, res) => {
     });
 
 });
+
 
 
 // update product
@@ -212,7 +211,6 @@ router.delete('/:id', (req, res) => {
     });
 
 });
-
 
 
 

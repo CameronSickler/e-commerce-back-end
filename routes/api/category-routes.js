@@ -104,7 +104,7 @@ router.put('/:id', (req, res) => {
   })
     .then(dbCategoryData => {
 
-      if (!dbCategoryData[0]) {
+      if (!dbCategoryData) {
 
         res.status(404).json({ message: 'This id does not match a category' });
         return;
@@ -138,8 +138,10 @@ router.delete('/:id', (req, res) => {
     .then(dbCategoryData => {
 
       if (!dbCategoryData) {
+
         res.status(404).json({ message: 'This id does not match a category' });
         return;
+
       }
 
       res.json(dbCategoryData);

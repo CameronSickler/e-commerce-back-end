@@ -1,22 +1,69 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
+
+
 // The `/api/products` endpoint
+
+
 
 // get all products
 router.get('/', (req, res) => {
   // find all products
-  // be sure to include its associated Category and Tag data
+
+  Product.findAll({
+
+    attributes: ['id', 'product_name', 'price', 'stock'],
+
+    //Product belongs to Category and Product belongs to many Tags
+    include: [
+      {
+        model: Category,
+        attributes: ['category_name']
+      },
+      {
+        model: Tag,
+        attributes: ['tag_name']
+      }
+    ]
+
+  })
+    .then(dbProductData => res.json(dbProductData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
+
+
+
+
 
 // get one product
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
+
+
+  // Product.findOne
+  // where for id grill into req? req.params.id? need to test
+  //attributes
+  //Product belongs to Category and Product belongs to many Tags
+  //response
+
+
+
   // be sure to include its associated Category and Tag data
 });
 
+
+
+
 // create new product
 router.post('/', (req, res) => {
+
+  //Product.create
+
+
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -24,6 +71,8 @@ router.post('/', (req, res) => {
       stock: 3,
       tagIds: [1, 2, 3, 4]
     }
+
+    //response
   */
   Product.create(req.body)
     .then((product) => {
@@ -47,9 +96,14 @@ router.post('/', (req, res) => {
     });
 });
 
+
+
+
 // update product
 router.put('/:id', (req, res) => {
   // update product data
+
+  //Product.update
   Product.update(req.body, {
     where: {
       id: req.params.id,
@@ -89,8 +143,18 @@ router.put('/:id', (req, res) => {
     });
 });
 
+
+
+
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+
+  //Product.destroy
+  //where grill for id in req params
+  // response
 });
+
+
+
 
 module.exports = router;

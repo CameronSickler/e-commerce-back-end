@@ -11,10 +11,9 @@ Product.init(
   {
     // define columns
 
-
     // id
 
-    // Integer
+    // Integer 
 
     // Doesn't allow null values
 

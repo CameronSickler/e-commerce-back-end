@@ -9,22 +9,24 @@ Category.init(
     // define columns
 
     //     id
-
-    // Integer
-
-    // Doesn't allow null values
-
-    // Set as primary key
-
-    // Uses auto increment
+    id: {
+      // Integer
+      type: DataTypes.INTEGER,
+      // Doesn't allow null values
+      allowNull: false,
+      // Set as primary key
+      primaryKey: true,
+      // Uses auto increment
+      autoIncrement: true
+    },
 
     // category_name
-
-    // String
-
-    // Doesn't allow null values
-
-
+    category_name: {
+      // String
+      type: DataTypes.STRING,
+      // Doesn't allow null values
+      allowNull: false
+    }
   },
   {
     sequelize,

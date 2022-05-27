@@ -90,9 +90,34 @@ router.post('/', (req, res) => {
 
 // update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
-  //Tag.update
-  //grill req for id
-  //response
+
+  Tag.update(req.body, {
+
+    where: {
+      id: req.params.id
+    }
+
+  })
+    .then(dbTagData => {
+
+      if (!dbTagData[0]) {
+
+        res.status(404).json({ message: 'This id does not have a matching tag' });
+        return;
+
+      }
+
+      res.json(dbTagData);
+
+    })
+
+    .catch(err => {
+
+      console.log(err);
+      res.status(500).json(err);
+
+    });
+
 });
 
 

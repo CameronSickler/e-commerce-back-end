@@ -40,7 +40,7 @@ THEN I am able to successfully create, update, and delete data in my database
  
 ### Walkthrough Video Link
  
-https://www.youtube.com/watch?v=ks4qAsCpwOY
+https://www.youtube.com/watch?v=jv8_5P00850
 ===============================
  
 #### Link to Deployed Application on Heroku

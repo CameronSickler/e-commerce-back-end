@@ -40,7 +40,7 @@ THEN I am able to successfully create, update, and delete data in my database
  
 ### Walkthrough Video Link
  
-link here
+https://www.youtube.com/watch?v=ks4qAsCpwOY
 ===============================
  
 #### Link to Deployed Application on Heroku
@@ -48,7 +48,7 @@ link here
  
  Link to GitHub Repository
 
-link here
+https://github.com/CameronSickler/e-commerce-back-end
  
 ===============================
  
